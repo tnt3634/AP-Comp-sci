@@ -1,12 +1,12 @@
 #BlueJ package file
-dependency1.from=Cylinder
+dependency1.from=Driver
 dependency1.to=Circle
 dependency1.type=UsesDependency
 dependency2.from=Driver
-dependency2.to=Circle
+dependency2.to=Cylinder
 dependency2.type=UsesDependency
-dependency3.from=Driver
-dependency3.to=Cylinder
+dependency3.from=Cylinder
+dependency3.to=Circle
 dependency3.type=UsesDependency
 editor.fx.0.height=735
 editor.fx.0.width=813

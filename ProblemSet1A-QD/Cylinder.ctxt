@@ -2,12 +2,12 @@
 comment0.target=Cylinder
 comment1.params=
 comment1.target=Cylinder()
-comment2.params=r\ h
+comment2.params=b\ h
 comment2.target=Cylinder(double,\ double)
 comment3.params=
 comment3.target=java.lang.String\ toString()
 comment4.params=
-comment4.target=Circle\ Base()
+comment4.target=double\ Base()
 comment5.params=
 comment5.target=double\ getHeight()
 comment6.params=

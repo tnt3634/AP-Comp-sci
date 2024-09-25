@@ -12,9 +12,9 @@ class Cylinder {
 
     }
 
-    public Cylinder(double r, double h){
+    public Cylinder(double b, double h){
 
-        base = new Circle(r);
+        base = new Circle(b);
         height = h;
 
     }
@@ -25,7 +25,7 @@ class Cylinder {
 
     }
 
-    Circle Base(){
+    double Base(){
         return base.getRadius();
     }
     
