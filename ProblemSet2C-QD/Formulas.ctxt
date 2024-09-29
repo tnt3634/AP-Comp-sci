@@ -2,6 +2,8 @@
 comment0.target=Formulas
 comment1.params=a\ b\ c
 comment1.target=OrderedPair\ findQuadraticRoots(double,\ double,\ double)
-comment2.params=A\ B
-comment2.target=double\ findSlope(OrderedPair,\ OrderedPair)
-numComments=3
+comment2.params=x1\ y1\ x2\ y2
+comment2.target=OrderedPair\ findSlope(double,\ double,\ double,\ double)
+comment3.params=at\ d\ k
+comment3.target=double\ findArithmeticSeriesSum(double,\ double,\ int)
+numComments=4
