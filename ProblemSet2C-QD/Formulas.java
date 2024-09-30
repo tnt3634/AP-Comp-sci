@@ -18,10 +18,24 @@ public class Formulas {
     }
     
     public double findArithmeticSeriesSum (double at, double d, int k){
-        //Sum of the first k terms of an arithmetic series: k/2(2at+d( k-1)) 
-        double fas = (double) k/2 * (2 * at +  (k-1) * d);
+         
+        double fas = (double) k/2 * (2 * at + (k-1) * d);
         return fas; 
     }
+    
+    public double findGeometricSeriesSum (double aG, double r, int kG){
+        //a * (1-rk)/(1-r)
+        double gas = aG * (   (1-(Math.pow(r, kG) ) )/(1-r));
+        return gas;
+    
+    }
+    
+    public int rollDie (int sides){
+        int randomside = (int) (Math.random()*sides) + 1;
+        return randomside;
+        
+    }
+    
 
     
 }

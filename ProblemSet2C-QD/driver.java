@@ -8,7 +8,7 @@ public class driver{
         Formulas f = new Formulas();
         p1 = new OrderedPair();
         p2 = new OrderedPair(1,5);
-        /*
+        
         System.out.println("If ordered pair is 0,0"); 
         System.out.println(p1.toString());
         System.out.println("X value --> " + p1.getX());
@@ -44,28 +44,36 @@ public class driver{
         System.out.println("the slope between " + "("+ x1 + "," + y1 + ") and (" + x2 + "," + y2 + ") is " + f.findSlope(x1, x2, y1, y2));
         System.out.println(" ");
         //-----------------------------------------------
-
-        
-         
-        SUM OF AN ARITHMETIC SERIES
-        Number of terms: 5
-        Starts with: 1.0
-        Increases by: 1.0
-        The sum of the first 5 terms of an arithmetic series that starts with 1.0 and increases by 1.0 is 15.0
-
-         */
         System.out.println("Sum of an arithmic series");
         System.out.print("Enter number of terms = ");
-        Double at = input.nextDouble();
+        int k = input.nextInt();
         System.out.print("Enter starting value = ");
         Double d = input.nextDouble();
         System.out.print("Enter Increase amount = ");
-        int k = input.nextInt();
-
-        System.out.println("The sum of the first " + at + " terms of an arithmetic series that starts with " + d + " and increases by " +
-        k + " is " + f.findArithmeticSeriesSum(at, d, k));
+        Double at = input.nextDouble();
+        System.out.println("The sum of the first " + k + " terms of an arithmetic series that starts with " + d + " and increases by " +
+        at + " is " + f.findArithmeticSeriesSum(at, d, k));
         System.out.println(" ");
+        //--------------------------------------------------------
+        System.out.println("Sum of an geometric series");
+        System.out.print("Enter number of terms = ");
+        int kG = input.nextInt();
+        System.out.print("Enter starting value = ");
+        Double aG = input.nextDouble();
+        System.out.print("Rate of growth = ");
+        Double r = input.nextDouble();
+        System.out.println("The sum of the first " + kG + " terms of a finite"+ 
+        " geometric series that starts with " + aG + " and increases by a " + 
+        "rate of " + r + " is "  + f.findGeometricSeriesSum(aG, r, kG));
+        System.out.println(" ");
+        //---------------------------------------------------------------
+        System.out.println("Dice roller");
+        System.out.print("How many sides does this dice have = ");
+        int sides = input.nextInt();
+        System.out.print("Rolling a " + sides + "-sided die... you got " +
+        f.rollDie(sides));
 
-       
-    }
-}
+        }
+
+        }
+        
