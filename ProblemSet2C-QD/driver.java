@@ -39,9 +39,21 @@ public class driver{
         Double x2 = input.nextDouble();
         System.out.print("Enter y1 = ");
         Double y1 = input.nextDouble();
-        System.out.print("Entefr y2 = ");
+        System.out.print("Enter y2 = ");
         Double y2 = input.nextDouble();
         System.out.println("the slope between " + "("+ x1 + "," + y1 + ") and (" + x2 + "," + y2 + ") is " + f.findSlope(x1, x2, y1, y2));
+        System.out.println(" ");
+        //-------------------------------------------------------------------
+        System.out.println("Finding midpoint between x1,y1 and x2, y2");
+        System.out.print("Enter x1 = ");
+        Double xx1 = input.nextDouble();
+        System.out.print("Enter x2 = ");
+        Double xx2 = input.nextDouble();
+        System.out.print("Enter y1 = ");
+        Double yy1 = input.nextDouble();
+        System.out.print("Enter y2 = ");
+        Double yy2 = input.nextDouble();
+        System.out.println("the midpoint between " + "("+ x1 + "," + y1 + ") and (" + x2 + "," + y2 + ") is " + f.findMidpoint(xx1, xx2, yy1, yy2));
         System.out.println(" ");
         //-----------------------------------------------
         System.out.println("Sum of an arithmic series");

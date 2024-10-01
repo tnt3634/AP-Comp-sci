@@ -10,10 +10,18 @@ public class Formulas {
 
     }
 
-    public OrderedPair findSlope (double x1, double y1, double x2, double y2){
+    public double findSlope (double x1, double y1, double x2, double y2){
         double slopeform = (y2 - y1)/(x2-x1);
-        OrderedPair slope = new OrderedPair(0, slopeform); 
+        double slope = slopeform; 
         return slope;
+
+    }
+    
+    public OrderedPair findMidpoint (double xx1, double xx2, double yy1, double yy2) {
+        double xMid = (xx1 + xx2)/2;
+        double yMid = (yy1 + yy2)/2;
+        OrderedPair midP = new OrderedPair(xMid, yMid);
+        return midP; 
 
     }
     
