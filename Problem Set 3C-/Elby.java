@@ -16,11 +16,15 @@ public class Elby {
      */
     public String getResponse(String statement) {
         String response = "";
-        String nothing = statement.trim();
-    if (statement == nothing) {
+        String nothing = "";
+    if (statement.trim() == nothing) {
         response = "Feeling talkative today?";
         }else if (statement.indexOf("no") >= 0) {
             response = "Why so negative?";
+        }else if (statement.indexOf("Hello") >= 0
+        || statement.indexOf("Hi") >= 0
+        || statement.indexOf("Hey") >= 0) {
+            response = "Hello how are you";
         } else if (statement.indexOf("mother") >= 0
         || statement.indexOf("father") >= 0
         || statement.indexOf("sister") >= 0
@@ -37,6 +41,12 @@ public class Elby {
         } else if (statement.indexOf("ms.") >= 0
         ||  statement.indexOf("mrs.") >= 0) {
             response = "She seems chill.";
+        } else if (statement.indexOf("music") >= 0){
+            response = "In music i like all types";
+        } else if (statement.indexOf("song") >= 0){  
+            response = "My favourite song is Hell on earth pt.2 by Westside Gunn";
+        } else if  ( statement.indexOf("album") >= 0) {
+            response = "the album Infection by The The is amazing"; 
         } else {
             response = getRandomResponse();
         }
