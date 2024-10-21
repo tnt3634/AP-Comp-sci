@@ -10,6 +10,6 @@ public class StdDraw1 {
             x += 20;
             y += 20;
         }
-          
+
     }
 }
