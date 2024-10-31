@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Driver
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Driver\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment1.text=\r\n\ \ \ \ public\ static\ void\ main\ (String[]\ args)\ {\r\n\ \ \ \ String\ a\ \=\ "";\ \r\n\ \ \ \ a\ \=\ Review.textToString("SimpleReview.txt");\r\n\ \ \ \ a\ \=\ Review.removePunctuation(a);\r\n\r\n\ \ \ \ while\ (a.indexOf("\ ")\ >\=\ 0){\r\n\r\n\ \ \ \ int\ fsi\ \=\ a.indexOf("\ ");\ \ \ \ \r\n\ \ \ \ String\ word\ \=\ a.substring(0,\ fsi);\r\n\ \ \ \ a\ \=\ a.substring(fsi\ +\ 1);\ \r\n\r\n\ \ \ \ }\r\n\r\n\ \ \ \ System.out.print(a);\ \ \r\n\r\n\ \ \ \ }\r\n
+numComments=2
