@@ -80,6 +80,40 @@ public class Review {
 
     }
 
+    public static String reviewResponse(String fileName){
+        double totalSentiment = totalSentiment(fileName);
+        
+        String sorry = textToString("imSorry.txt");
+        String thank = textToString("thankYou.txt");
+        String result = ""; 
+
+        if (totalSentiment > 0){
+
+            for (int i = 0; i < thank.length(); i++){
+
+                if (thank.charAt(i) == '*' ){
+
+                    result += thank.substring(0,i) + Review.randomPositiveAdj() + thank.substring(i + 9, thank.length());;
+
+                }
+            }
+        }
+        if (totalSentiment < 0){
+            for (int i = 0; i < sorry.length(); i++){
+
+                if (sorry.charAt(i) == '*' ){
+
+                    result += sorry.substring(0,i) + Review.randomNegativeAdj() + sorry.substring(i + 9, sorry.length());
+
+                }
+            }     
+        }
+
+        return result;
+    }
+
+    
+
     public static int starRating(String fileName) {
 
         double totalSentiment = totalSentiment(fileName);
