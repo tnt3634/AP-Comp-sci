@@ -6,79 +6,88 @@ public class driver{
     static String[][] board; 
 
     public static void main(String[] args) {
-        PlayTicTacToe p1x, p2o;   
+          
         Scanner input = new Scanner(System.in);
         initalizeBoard();
         printBoard(); 
         boolean xTurn = true; 
         boolean playing = true; 
+        while(playing){
+            while(!WinX() && !WinO() && !Tie()){
+                if(xTurn){
+                    System.out.println("Player 1's turn");
+                    System.out.println("Enter move [row],[col]");
+                    String a = input.nextLine();
 
-        while(!WinX() && !WinO() && !Tie()){
-            if(xTurn){
-                System.out.println("Player 1's turn");
-                System.out.println("Enter move [row],[col]");
-                String a = input.nextLine();
+                    //Next 3 lines are checking to see if the inputted value fits on the grid or if the move has
+                    //Already been done
+                    if(Integer.parseInt(a.substring(0, 1)) > 0 && Integer.parseInt(a.substring(0, 1)) <= 3 ){
+                        if(Integer.parseInt(a.substring(2)) > 0 && Integer.parseInt(a.substring(2)) <= 3){
+                            if(board[Integer.parseInt(a.substring(0, 1))-1][Integer.parseInt(a.substring(2))-1].equals(" ")){
+                                xturn(a);
+                                xTurn = false; 
+                            } else{
 
-                if(Integer.parseInt(a.substring(0, 1)) > 0 && Integer.parseInt(a.substring(0, 1)) <= 3 ){
-                    if(Integer.parseInt(a.substring(2)) > 0 && Integer.parseInt(a.substring(2)) <= 3){
-                        if(board[Integer.parseInt(a.substring(0, 1))-1][Integer.parseInt(a.substring(2))-1].equals(" ")){
-                            xturn(a);
-                            xTurn = false; 
-                        } else{
+                                xTurn = true;
+                                System.out.println("No Cheating");
 
-                            xTurn = true;
-                            System.out.println("Go again");
-
+                            }
                         }
-                    }
-                } else{
+                    } else{
 
-                    xTurn = true;
-                    System.out.println("Keep within 3 by 3 grid");
+                        xTurn = true;
+                        System.out.println("Keep within 3 by 3 grid");
+                    }
+                } else {
+                    System.out.println("Player 2's turn");
+                    System.out.println("Enter move [row],[col]");
+                    String b = input.nextLine();
+                    //Next 3 lines are checking to see if the inputted value fits on the grid or if the move has
+                    //Already been done
+                    if(Integer.parseInt(b.substring(0, 1)) > 0 && Integer.parseInt(b.substring(0, 1)) <= 3 ){
+                        if(Integer.parseInt(b.substring(2)) > 0 && Integer.parseInt(b.substring(2)) <= 3 ){
+                            if(board[Integer.parseInt(b.substring(0, 1)) - 1][Integer.parseInt(b.substring(2)) - 1].equals(" ")){
+                                oturn(b); 
+                                xTurn = true; 
+                            } else {
+
+                                xTurn = false;
+                                System.out.println("No Cheating");
+
+                            }
+                        }
+                    }else{
+
+                        xTurn = false;
+                        System.out.println("Keep within 3 by 3 grid");
+                    } 
                 }
+
+            }
+            if (WinX()){
+                System.out.println("X WINS!");    
+            } else if(WinO()){
+                System.out.println("O WINS!");
+            } else if(Tie()){ 
+                System.out.println("ITS A TIE"); 
+            }
+
+            System.out.println("Play again? Y/N"); 
+            String YN = input.nextLine();
+            if (YN.equals( "y") || YN.equals( "Y")){
+
+                initalizeBoard();
+                printBoard();   
+                playing = true;
             } else {
-                System.out.println("Player 2's turn");
-                System.out.println("Enter move [row],[col]");
-                String b = input.nextLine();
 
-                if(Integer.parseInt(b.substring(0, 1)) > 0 && Integer.parseInt(b.substring(0, 1)) <= 3 ){
-                    if(Integer.parseInt(b.substring(2)) > 0 && Integer.parseInt(b.substring(2)) <= 3 ){
-                        if(board[Integer.parseInt(b.substring(0, 1)) - 1][Integer.parseInt(b.substring(2)) - 1].equals(" ")){
-                            oturn(b); 
-                            xTurn = true; 
-                        } else {
-
-                            xTurn = false;
-                            System.out.println("Retry");
-
-                        }
-                    }
-                }else{
-
-                    xTurn = false;
-                    System.out.println("Keep within 3 by 3 grid");
-                } 
+                playing = false; 
+                System.out.println("Thank you for playing");
             }
 
         }
-        if (WinX()){
-            System.out.println("X WINS!");    
-        } else if(WinO()){
-            System.out.println("O WINS!");
-        } else if(Tie()){ 
-            System.out.println("ITS A TIE"); 
-        }
 
-        
-        
-        
-        if(WinX()||WinO()||Tie()){
-            
-            System.out.println("Play again?"); 
-            
-        }
     }    
-
     public static void printBoard(){
         for (int row = 0; row < board.length; row++){
             for (int col = 0; col < board[0].length; col++){
@@ -104,12 +113,15 @@ public class driver{
     }
 
     public static boolean Tie(){
-
+        int movecount = 0; 
         for (int row = 0; row < board.length; row++){
 
             for (int col = 0; col < board[0].length; col++){
                 if(board[row][col] != " "){
-                    return true; 
+
+                    movecount++;
+                    if(movecount == 9 && !WinX() && !WinO())return true; 
+
                 }
             }
 
@@ -117,6 +129,7 @@ public class driver{
 
         return false;  
     }
+
     public static boolean WinX(){
         if       (XLoc(1,1) && XLoc(2,1) && XLoc(3,1)){
             return true;  
