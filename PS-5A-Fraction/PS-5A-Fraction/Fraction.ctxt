@@ -1,0 +1,26 @@
+#BlueJ class context
+comment0.target=Fraction
+comment1.params=
+comment1.target=Fraction()
+comment10.params=denom
+comment10.target=void\ setDenom(int)
+comment11.params=num
+comment11.target=void\ setNum(int)
+comment2.params=num\ denom
+comment2.target=Fraction(int,\ int)
+comment3.params=Frac
+comment3.target=Fraction(java.lang.String)
+comment4.params=myFrac
+comment4.target=Fraction(Fraction)
+comment5.params=
+comment5.target=int\ getNum()
+comment6.params=
+comment6.target=int\ getDenom()
+comment7.params=
+comment7.target=java.lang.String\ toString()
+comment8.params=
+comment8.target=double\ toDouble()
+comment9.params=
+comment9.target=void\ reduce()
+comment9.text=\r\n\ \ \ \ reduce()\ -\ a\ method\ for\ reducing\ the\ Fraction\ object\ to\ lowest\ terms.\ \ \r\n\ \ \ \ This\ can\ be\ a\ void\ method\ with\ no\ parameters.\r\n\r\n\ \ \ \ setNum()\ and\ setDenom()\ -\ methods\ for\ changing\ the\ values\ of\ the\ \r\n\ \ \ \ numerator\ and\ denominator\r\n
+numComments=12
