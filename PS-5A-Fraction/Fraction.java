@@ -2,7 +2,7 @@ public class Fraction {
 
     //Instance variables
     private int numerator;
-    private int denomenator; 
+    private int denominator; 
 
     //---------------------------Constructors----------------------------------
 
@@ -10,32 +10,29 @@ public class Fraction {
     public Fraction (){
 
         numerator = 1;
-        denomenator = 7; 
+        denominator = 7; 
 
     }
 
     //Parameterized Constructor
     public Fraction (int num, int denom){
 
-        numerator = num;
-
-        if(denom == 0){
-            
-            System.out.println("Error: Denominator cannot be zero");
-            denom = 1; 
-            
-        } else {
-
-            denomenator = denom;    
-
-        }
+        setNum(num); 
+        setDenom(denom); 
 
     }
     //Constructor that takes in string
-    public Fraction (String Fract){
+    public Fraction (String Frac){
+        numerator = Integer.parseInt(Frac.substring(0, Frac.indexOf("/")));
+        if(Integer.parseInt(Frac.substring(Frac.indexOf("/")+1)) == 0){
+            System.out.println("Error: Denominator cannot be zero");
+            denominator = 1; 
 
-        numerator = Integer.parseInt(Fract.substring(0, Fract.indexOf("/")));
-        denomenator = Integer.parseInt(Fract.substring(Fract.indexOf("/"))+1); 
+        } else {
+
+            denominator = Integer.parseInt(Frac.substring(Frac.indexOf("/")+1));;    
+
+        }
 
     }
 
@@ -43,34 +40,108 @@ public class Fraction {
     public Fraction (Fraction myFrac){
 
         numerator = myFrac.numerator;
-        denomenator = myFrac.denomenator; 
+        denominator = myFrac.denominator; 
 
     }
 
     //-------------------------Accessor Methods----------------------------------
 
-    
-    /*
-     getNum() and getDenom() - methods that return the values of the numerator 
-     and denominator.
-     
-     toString() - a method that returns the Fraction as a String.  
-     For example, the fraction one half should be represented as “1/2”
-     
-     toDouble() - a method that returns the Fraction as a decimal number.
-     For example, the fraction one half should be represented as 0.5
-     */
-    
     public int getNum(){
-        
-        return .numerator;
-        
+
+        return numerator;   
+
     }
-    
+
     public int getDenom(){
-        
-        return;
-        
+
+        return denominator; 
+
+    }
+
+    public String toString(){
+
+        return numerator + "/" + denominator; 
+
+    }
+
+    public double toDouble(){
+
+        return (double)numerator/denominator; 
+
+    }
+
+    //-------------------------Mutator Methods----------------------------------
+
+    public void reduce(){
+        int factor = GCF(Math.abs(numerator),Math.abs(denominator));
+        numerator = numerator/factor;
+        denominator = denominator/factor; 
+    }
+
+    private int GCF(int n, int d){
+        while (d != 0) {
+            int remainder = n % d;
+            n = d;
+            d = remainder;
+        }
+        return n;
+    }
+
+    public void setDenom(int denom){
+        if(denom == 0){
+            System.out.println("Error: Denominator cannot be zero");
+            denom = 1; 
+
+        } else {
+
+            denominator = denom;    
+
+        }
+
+    }
+
+    public void setNum(int num){
+
+        numerator = num; 
+
+    }
+
+    //-------------------------Static Methods----------------------------------
+
+    public static Fraction multiply(Fraction a, Fraction b){
+        int Num = a.numerator * b.numerator;
+        int Denom = a.denominator * b.denominator;
+        Fraction c = new Fraction (Num, Denom);
+        c.reduce();
+        return new Fraction (c);        
+
     }
     
+    public static Fraction divide(Fraction a, Fraction b){
+        int Num = a.numerator * b.denominator;
+        int Denom = a.denominator * b.numerator;
+        Fraction c = new Fraction (Num, Denom);
+        c.reduce();
+        return new Fraction (c);        
+
+    }
+    
+    public static Fraction add(Fraction a, Fraction b){
+        int Num = (a.denominator * b.numerator) + (b.denominator * a.numerator);
+        int Denom = (a.denominator * b.denominator);
+        Fraction c = new Fraction (Num, Denom);
+        c.reduce();
+        return new Fraction (c);        
+
+    }
+    
+    public static Fraction subtract(Fraction a, Fraction b){
+        int Num = (b.denominator * a.numerator) - (a.denominator * b.numerator);
+        int Denom = (a.denominator * b.denominator);
+        Fraction c = new Fraction (Num, Denom);
+        c.reduce();
+        return new Fraction (c);        
+
+    }
+
 }
