@@ -6,22 +6,22 @@ public class Driver{
         Fraction f2 = new Fraction ();
         Fraction f4 = new Fraction ("5/11");
         Fraction copy = new Fraction (f1);
-        
-        
-        System.out.println(f1);
-        System.out.println(f2);
-        System.out.println(f4);
-        System.out.println(copy);
-        
+        Fraction reduceTest = new Fraction (306,1056);
+        //------------------------------
         System.out.println(copy.getNum());
         System.out.println(copy.getDenom());
         System.out.println(copy.toString());
         System.out.println(copy.toDouble());
-        
-       
-        
-        
+        //------------------------------
+        reduceTest.reduce();
+        System.out.println(reduceTest);
+        f1.setDenom(78);
+        System.out.println(f1);
+
+        Fraction half = new Fraction(1,2);
+        Fraction third = new Fraction (1,3);
+        //Fraction sum = Fraction.multiply(half, third);
+
         
     }
-    
 }

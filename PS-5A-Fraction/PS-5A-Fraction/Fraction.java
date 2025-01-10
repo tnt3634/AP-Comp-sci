@@ -17,21 +17,14 @@ public class Fraction {
     //Parameterized Constructor
     public Fraction (int num, int denom){
 
-        
         setNum(num); 
         setDenom(denom); 
-        
 
     }
-
     //Constructor that takes in string
-
     public Fraction (String Frac){
-
         numerator = Integer.parseInt(Frac.substring(0, Frac.indexOf("/")));
-
         if(Integer.parseInt(Frac.substring(Frac.indexOf("/")+1)) == 0){
-
             System.out.println("Error: Denominator cannot be zero");
             denominator = 1; 
 
@@ -77,36 +70,26 @@ public class Fraction {
 
     }
 
-    /*
-    reduce() - a method for reducing the Fraction object to lowest terms.  
-    This can be a void method with no parameters.
+    //-------------------------Mutator Methods----------------------------------
 
-    setNum() and setDenom() - methods for changing the values of the 
-    numerator and denominator
-     */
-    
     public void reduce(){
-        int factor = GCD(numerator, denominator);
+        int factor = GCF(Math.abs(numerator),Math.abs(denominator));
         numerator = numerator/factor;
-        
+        denominator = denominator/factor; 
     }
-    
-    private int GCD(int n, int d){
-        
-        while(d != 0){
-            
-            
-            
-        }
-        
-    }
-    
-    
-    
-    public void setDenom(int denom){
-        
-        if(denom == 0){
 
+
+    private int GCF(int n, int d){
+        while (d != 0) {
+            int remainder = n % d;
+            n = d;
+            d = remainder;
+        }
+        return n;
+    }
+
+    public void setDenom(int denom){
+        if(denom == 0){
             System.out.println("Error: Denominator cannot be zero");
             denom = 1; 
 
@@ -115,15 +98,22 @@ public class Fraction {
             denominator = denom;    
 
         }
-        
+
     }
 
     public void setNum(int num){
-        
+
         numerator = num; 
-        
+
     }
 
-    
+    //-------------------------Static Methods----------------------------------
+    /*
+    static void multiply(Fraction a, Fraction b){
+        
+        return a.numerator; 
+        
+    }
+    */
     
 }
