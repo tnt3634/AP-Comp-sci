@@ -14,8 +14,6 @@ public class Fraction {
         denominator = (int) (Math.random()*14) + 1;
         
     }
-    
-    
 
     //Default Constructor
     public Fraction (){
